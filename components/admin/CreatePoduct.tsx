@@ -48,7 +48,7 @@ export const CreatePoduct = () => {
               resetForm();
               router.push("/admin/dashboard");
             } else {
-              toast.error(res.data?.message);
+              toast.error(res.error);
             }
           }}
         >
