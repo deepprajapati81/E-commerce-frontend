@@ -1,3 +1,4 @@
+'use server'
 import { error } from "console";
 import { NextResponse } from "next/server";
 
@@ -43,7 +44,7 @@ export const apiConfig = async ({
       const { cookies } = await import("next/headers");
       const cookieStore = cookies();
       const token = (await cookieStore).get("token")?.value;
-
+      console.log("token in server api ",token)
       if (token) {
         headers["Authorization"] = `Bearer ${token}`;
       }

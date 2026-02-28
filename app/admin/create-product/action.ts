@@ -1,3 +1,4 @@
+'use server'
 import { createProductApi } from "@/api_config/admin/adminApi"
 import { createProductResponse } from "@/api_config/admin/Admin"
 import { createProductProps } from "@/api_config/admin/adminApi"
