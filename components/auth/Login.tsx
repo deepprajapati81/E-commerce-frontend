@@ -9,6 +9,7 @@ import { handleLogin } from "@/api_config/auth/loginApi";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { LoginApiRes } from "@/api_config/auth/AuthTypes";
+import { LoginApi } from "../../app/(auth)/login/action";
 export type loginProps = {
   email: string;
   password: string;
@@ -37,9 +38,10 @@ export const Login = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={async (values, { resetForm }) => {
-            const res: LoginApiRes = await handleLogin(values);
-            console.log("login info ", res);
-            if (res.success && res.data) {
+            const res =   await LoginApi(values)
+
+            console.log("login values",values)
+                if (res.success && res.data) {
               setRole(res.data.user.role);
               console.log(res.data.user.role)
               setIsLoggedIn(true);
@@ -60,6 +62,7 @@ export const Login = () => {
             } else {
               toast.error(res.error);
             }
+           
           }}
         >
           {() => (

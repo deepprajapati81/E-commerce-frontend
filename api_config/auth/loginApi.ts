@@ -3,9 +3,7 @@ import { apiConfig } from "../apiConfig";
 import { LoginApiRes } from "./AuthTypes";
 export const handleLogin = async (values: loginProps) => {
   try {
-    const formData = new FormData();
-    formData.append("email", values.email);
-    formData.append("password", values.password);
+   
 
     const res: LoginApiRes = await apiConfig({
       url: "auth/login",

@@ -8,7 +8,8 @@ export type loginData = {
     id: string;
     role: "customer" | "admin" | undefined;
     totalItems?: number;
-  };
+  },
+  token:string
 };
 export type singupData = {
   success: boolean;
