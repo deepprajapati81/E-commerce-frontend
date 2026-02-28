@@ -195,7 +195,7 @@ export function DataTable<TData, TValue>({
           <div>
             showing {(currentPage - 1) * limit + 1} to{" "}
             {Math.min(currentPage * limit, totalCount)} of {""}
-            {totalCount} Users
+            {totalCount} Products
           </div>
         </div>
         
