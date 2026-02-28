@@ -48,7 +48,7 @@ export const GetProductsApi = async ( page?: number,limit?:number ) => {
         page,limit
       }
     });
-    // console.log("GetProductsApi res", res);
+  
     return res;
   } catch (error:any) {
     console.log(error);

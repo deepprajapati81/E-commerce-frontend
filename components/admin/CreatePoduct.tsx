@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { createProductApi } from "@/api_config/admin/adminApi";
 import { createProductResponse } from "@/api_config/admin/Admin";
+import { createProductAction } from "@/app/admin/create-product/action";
 const initialValues: createProductProps = {
   name: "",
   discription: "",
@@ -41,7 +42,7 @@ export const CreatePoduct = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={async (values, { resetForm }) => {
-            const res:createProductResponse = await createProductApi(values);
+            const res:createProductResponse = await createProductAction(values);
             if (res.success) {
               toast.success(res.data?.message);
               resetForm();
