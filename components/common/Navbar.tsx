@@ -24,7 +24,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { LogoutApiRes } from "@/api_config/auth/AuthTypes";
-
+import {hadleLogoutApi} from '@/app/(auth)/login/action'
 const Navbar = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -39,7 +39,7 @@ const Navbar = () => {
     setCartItemCount,
   } = useAuth();
   const hadleLogout = async () => {
-    const res:LogoutApiRes = await logoutApi();
+    const res:LogoutApiRes = await hadleLogoutApi();
     console.log("logout data", res);
     if (res.success) {
       toast.success(res.data?.message);
