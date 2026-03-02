@@ -192,50 +192,54 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div>
-            showing {(currentPage - 1) * limit + 1} to{" "}
-            {Math.min(currentPage * limit, totalCount)} of {""}
-            {totalCount} Products
-          </div>
-        </div>
         
-      </div>
-	  
-	  <div className="flex gap-x-3 items-center">
-          {" "}
-          <Button
-            onClick={() => handlePagination("prev")}
-            disabled={currentPage === 1}
-            variant="outline"
-            size="sm"
-          >
-            <ArrowLeftToLine />
-            {/* Previous */}
-          </Button>
-          {pages.map((p) => {
-            const isActive = p === currentPage;
-            return (
+            {" "}
+            {/* total page */}
+            <div>
+              showing {(currentPage - 1) * limit + 1} to{" "}
+              {Math.min(currentPage * limit, totalCount)} of {""}
+              {totalCount} Products
+            </div>
+            {/* next button */}
+          
+          </div>
+            <div className="flex gap-x-3 ">
+              {" "}
               <Button
+                onClick={() => handlePagination("prev")}
+                disabled={currentPage === 1}
+                variant="outline"
                 size="sm"
-                key={p}
-                variant="ghost"
-                className={isActive ? "bg-gray-500 text-white" : ""}
-                onClick={() => handlePageButton(p)}
               >
-                {p}
+                <ArrowLeftToLine />
+                {/* Previous */}
               </Button>
-            );
-          })}
-          <Button
-            onClick={() => handlePagination("next")}
-            disabled={currentPage === totalPages}
-            variant="outline"
-            size="sm"
-          >
-            {/* Next */}
-            <ArrowRightToLine />
-          </Button>
+              {pages.map((p) => {
+                const isActive = p === currentPage;
+                return (
+                  <Button
+                    size="sm"
+                    key={p}
+                    variant="ghost"
+                    className={isActive ? "bg-gray-500 text-white" : ""}
+                    onClick={() => handlePageButton(p)}
+                  >
+                    {p}
+                  </Button>
+                );
+              })}
+              <Button
+                onClick={() => handlePagination("next")}
+                disabled={currentPage === totalPages}
+                variant="outline"
+                size="sm"
+              >
+                {/* Next */}
+                <ArrowRightToLine />
+              </Button>
+            </div>
         </div>
+      
     </div>
   );
 }
